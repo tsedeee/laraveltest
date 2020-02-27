@@ -9,7 +9,7 @@
                 <div class="card-header">
                     Contact
                     <span class="float-right">
-                        <a href="{{ route('contact.index') }}">Contact list</a>
+                        <a href="{{ route('contact.index') }}">Contact List</a>
                     </span>
                 </div>
                     <div class="card-body">
