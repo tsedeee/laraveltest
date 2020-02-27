@@ -13,9 +13,9 @@
                     </span>
                 </div>
                     <div class="card-body">
-                        <p>Name/Нэр/: {{ $contact->name }}</p>
-                        <p>Address/Гэрийн хаяг/: {{ $contact->address }}</p>
-                        <p>Phone/Утасны дугаар/: {{ $contact->phone }}</p>
+                        <p>Name /Нэр/: {{ $contact->name }}</p>
+                        <p>Address /Гэрийн хаяг/: {{ $contact->address }}</p>
+                        <p>Phone /Утасны дугаар/: {{ $contact->phone }}</p>
                     </div>
             </div>
         </div>
