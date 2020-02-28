@@ -9,9 +9,13 @@
                 <div class="card-header">Нийтлэлүүд</div>
 
                 <div class="card-body">
+                    posts
+                    <a href="{{ action('PostController@index') }}">Нийтлэлүүд</a>
+                    <img src="{{ asset('image.jpg') }}" alt="">
                     @foreach ($posts as $post)
                         <p> {{ $post->title }} || {{ $post->user->name }}</p>
                     @endforeach
+
                 </div>
             </div>
         </div>

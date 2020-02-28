@@ -11,9 +11,31 @@
 |
 */
 use App\Post;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    $array = [
+        'name' => 'Boldoo Lkhagva',
+        'age' => 29
+    ];
+
+    $array = Arr::except($array, ['age']);
+
+    //$array = Arr::add($array, 'country', 'монгол');
+    //$array = Arr::add($array, 'number', '99999999');
+
+    //$array = Arr::divide($array);
+
+    //$number = [
+    //   ['1','2','3'],
+    //   ['4','5','6']
+    //];
+    //$number = Arr::collapse($number);
+
+    dd($array);
 });
 
 Route::get('/helper', function () {
@@ -26,7 +48,7 @@ Route::get('/helper', function () {
     //echo Str::slug($sentence);
     //echo Str::title($sentence);
     //echo Str::random(30);
-    
+
 });
 
 Auth::routes();
@@ -45,7 +67,7 @@ Route::get('/create', 'TaskController@create')->name('jobs.create');
 Route::post('/create', 'TaskController@store')->name('jobs.store');
 
 //post
-Route::get('/posts', 'PostController@index');
+Route::get('/posts', 'PostController@index')->name('posts.index');
 
 Route::get('/post-tag', function(){
     $post = Post::find(1);
@@ -65,3 +87,4 @@ Route::get('/contact/{contact}/edit', 'ContactController@edit')->name('contact.e
 Route::post('/contact/{contact}/update', 'ContactController@update')->name('contact.update');
 Route::get('/contact/{contact}/show', 'ContactController@show')->name('contact.show');
 Route::post('/contact/{contact}/destroy', 'ContactController@destroy')->name('contact.destroy');
+
