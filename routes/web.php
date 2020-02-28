@@ -16,6 +16,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/helper', function () {
+    //$okey = 'okey';
+    //dd($okey);
+    $sentence = "Хурдан бор үнэг залхуу нохойн дээгүүр харайдаг.";
+    $value = "children";
+    //echo Str::limit($sentence, 30, '...');
+    //echo Str::singular($value);
+    //echo Str::slug($sentence);
+    //echo Str::title($sentence);
+    //echo Str::random(30);
+    
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
