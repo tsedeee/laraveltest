@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Album;
 use App\Image;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class ImageController extends Controller
      */
     public function index()
     {
-        return view('images.index');
+        $images = Image::all();
+        return view('images.index', compact('images'));
     }
 
     /**
@@ -36,11 +38,16 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
+        $album = Album::create(['name' => $request->get('album')]);
         if($request->hasFile('image')){
-            Image::create([
-                'name' => $request->file('image')->store('uploads', 'public'),
-                'album_id' => 1
-            ]);
+            foreach($request->file('image') as $image){
+                $path = $image->store('uploads', 'public');
+                Image::create([
+                    'name' => $path,
+                    'album_id' => $album->id
+                ]);
+            }
+            return redirect('/album');
         }
     }
 
