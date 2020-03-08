@@ -47,7 +47,7 @@ class ImageController extends Controller
                     'album_id' => $album->id
                 ]);
             }
-            return redirect('/album');
+            return "<div class='alert alert-success'>Зургийн цомог болон зураг амжилттай үүсгэлээ.</div>";
         }
     }
 
