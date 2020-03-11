@@ -100,8 +100,11 @@ class ImageController extends Controller
      * @param  \App\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Image $image)
+    public function destroy($id)
     {
         //
+        $deletedimage = Image::findOrFail($id);
+        $deletedimage->delete();
+        return redirect('/album')->with('Message', 'Зураг амжилттай устлаа.');
     }
 }

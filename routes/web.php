@@ -93,3 +93,4 @@ Route::get('/album', 'ImageController@index')->name('album.index');
 Route::get('/album/{id}', 'ImageController@show')->name('album.show');
 Route::get('/album/create', 'ImageController@create')->name('album.create');
 Route::post('/album/create', 'ImageController@store')->name('album.store');
+Route::post('/album/destroy/{id}', 'ImageController@destroy')->name('album.destroy');
