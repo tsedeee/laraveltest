@@ -15,8 +15,10 @@ class ImageController extends Controller
      */
     public function index()
     {
-        $images = Image::all();
-        return view('images.index', compact('images'));
+        $albums = Album::with('images')->get();
+        //dd($albums);
+        //return $albums;
+        return view('images.index', compact('albums'));
     }
 
     /**
@@ -26,7 +28,8 @@ class ImageController extends Controller
      */
     public function create()
     {
-        //
+        $images = Image::all();
+        return view('images.create', compact('images'));
     }
 
     /**
@@ -38,6 +41,10 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
+        $this->validate($request, [
+            'album' => 'required|min:3|max:50',
+            'image' => 'required'
+        ]);
         $album = Album::create(['name' => $request->get('album')]);
         if($request->hasFile('image')){
             foreach($request->file('image') as $image){
@@ -57,9 +64,11 @@ class ImageController extends Controller
      * @param  \App\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function show(Image $image)
+    public function show($id)
     {
-        //
+        //dd($id);
+        $albums = Album::findOrFail($id);
+        return view('images.gallery', compact('albums'));
     }
 
     /**
