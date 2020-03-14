@@ -90,7 +90,7 @@ Route::post('/contact/{contact}/destroy', 'ContactController@destroy')->name('co
 
 //Album
 Route::get('/album', 'ImageController@index')->name('album.index');
-Route::get('/album/{id}', 'ImageController@show')->name('album.show');
 Route::get('/album/create', 'ImageController@create')->name('album.create');
 Route::post('/album/create', 'ImageController@store')->name('album.store');
+Route::get('/album/{id}', 'ImageController@show')->name('album.show');
 Route::post('/album/destroy/{id}', 'ImageController@destroy')->name('album.destroy');

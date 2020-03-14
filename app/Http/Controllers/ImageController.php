@@ -104,7 +104,9 @@ class ImageController extends Controller
     {
         //
         $deletedimage = Image::findOrFail($id);
+        $filePath = $deletedimage->name;
         $deletedimage->delete();
+        \Storage::delete(['public/'.$filePath]);
         return redirect('/album')->with('Message', 'Зураг амжилттай устлаа.');
     }
 }
