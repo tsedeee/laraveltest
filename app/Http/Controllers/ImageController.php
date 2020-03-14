@@ -109,4 +109,23 @@ class ImageController extends Controller
         \Storage::delete(['public/'.$filePath]);
         return redirect('/album')->with('Message', 'Зураг амжилттай устлаа.');
     }
+    public function image(Request $request)
+    {
+        //dd($request->all());
+        $this->validate($request, [
+            'image' => 'required'
+        ]);
+
+        if($request->hasFile('image')){
+            $albumId = $request->id;
+            foreach($request->file('image') as $image){
+                $path = $image->store('uploads', 'public');
+                Image::create([
+                    'name' => $path,
+                    'album_id' => $albumId
+                ]);
+            }
+            return redirect()->back()->with("Message", "Зургийг амжилттай үүсгэлээ.");
+        }
+    }
 }
