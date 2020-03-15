@@ -1,11 +1,11 @@
-
 <div class="container">
 
+@if (Auth::check() && Auth::user()->user_type == 'admin')
     <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
     Зураг нэмэх
   </button>
-
+@endif
   <!-- Modal -->
   <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">

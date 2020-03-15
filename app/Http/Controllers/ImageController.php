@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class ImageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin', ['only' => ['image', 'albumImage', 'create', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

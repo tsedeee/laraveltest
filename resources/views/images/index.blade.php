@@ -7,7 +7,7 @@
         <div class="alert alert-success">{{ Session::get('Message') }}</div>
     @endif
     <h2>Зургийн цомог</h2>
-    @if (Auth::check())
+    @if (Auth::check() && Auth::user()->user_type == 'admin')
         <a href="{{ route('album.create') }}">Зургийн цомог үүсгэх</a>
     @endif
     <div class="row">
@@ -23,7 +23,7 @@
                             <a href="/album/{{ $album->id }}" class="centered">{{ $album->name }}</a>
                     </a>
                 </div>
-                @if (Auth::check())
+                @if (Auth::check() && Auth::user()->user_type == 'admin')
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $album->id }}">
                     Зургийн цомгийн зураг - {{ $album->id }}
