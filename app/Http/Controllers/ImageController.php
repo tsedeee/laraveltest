@@ -128,4 +128,20 @@ class ImageController extends Controller
             return redirect()->back()->with("Message", "Зургийг амжилттай үүсгэлээ.");
         }
     }
+    public function albumImage(Request $request)
+    {
+        $this->validate($request, [
+            'image' => 'required'
+        ]);
+
+        if($request->hasFile('image')){
+            $albumId = $request->id;
+            $file = $request->file('image');
+            $path = $file->store('uploads', 'public');
+            Album::where('id', $albumId)->update([
+                'image' => $path
+            ]);
+            return redirect()->back()->with("Message", "Альбомын зургийг амжилттай шинэчлэлээ.");
+        }
+    }
 }

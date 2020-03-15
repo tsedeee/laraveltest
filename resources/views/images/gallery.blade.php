@@ -2,6 +2,7 @@
 
 @section('content')
 
+    <!-- Modal хэсгийг include хийж байна -->
     @include('images.addImageAlbum')
 
     @if(Session::has('Message'))
@@ -101,3 +102,29 @@
         }))
     })
 </script> --}}
+
+<style>
+    .item{
+        left: 0;
+        top: 0;
+        position: relative;
+        margin-top: 50px;
+    }
+    .item img{
+        -webkit-transition: 0.6s ease;
+        transition: 0.6s ease;
+
+    }
+    .item img:hover{
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    .centered{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 24px;
+    }
+</style>

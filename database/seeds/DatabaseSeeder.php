@@ -16,7 +16,13 @@ class DatabaseSeeder extends Seeder
     {
         //factory(User::class, 20)->create();
         //factory(Profile::class, 50)->create();
-        factory(Post::class, 500)->create();
+        //factory(Post::class, 500)->create();
         // $this->call(UsersTableSeeder::class);
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'user_type' => 'admin',
+            'password' => bcrypt('admin@gmail.com')
+        ]);
     }
 }

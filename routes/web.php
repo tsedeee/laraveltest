@@ -17,25 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-    //$array = [
-    // 'name' => 'Boldoo Lkhagva',
-    //    'age' => 29
-    //];
-
-    //$array = Arr::except($array, ['age']);
-
-    //$array = Arr::add($array, 'country', 'монгол');
-    //$array = Arr::add($array, 'number', '99999999');
-
-    //$array = Arr::divide($array);
-
-    //$number = [
-    //   ['1','2','3'],
-    //   ['4','5','6']
-    //];
-    //$number = Arr::collapse($number);
-
-    //dd($array);
+});
+Route::get('/home', function () {
+    return view('home');
 });
 
 //Route::get('/helper', function () {
@@ -95,3 +79,4 @@ Route::post('/album/create', 'ImageController@store')->name('album.store');
 Route::post('/album/image', 'ImageController@image')->name('album.image');
 Route::get('/album/{id}', 'ImageController@show')->name('album.show');
 Route::post('/album/destroy/{id}', 'ImageController@destroy')->name('album.destroy');
+Route::post('/album/add/image', 'ImageController@albumImage')->name('album.add.image');
