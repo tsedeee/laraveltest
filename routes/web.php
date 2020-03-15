@@ -29,11 +29,8 @@ Route::get('/test_hello/{name}/{age}', 'HomeController@test_hello')->name('test_
 
 //user
 Route::get('/users', 'UserController@index')->name('users.index');
-
 Route::get('/user', 'TaskController@index');
-
 Route::get('/user/{usr}', 'TaskController@create')->name('jobs.create');
-
 Route::get('/create', 'TaskController@create')->name('jobs.create');
 Route::post('/create', 'TaskController@store')->name('jobs.store');
 
